@@ -1,0 +1,57 @@
+services:
+  # MySQL Database Service
+  # mysql:
+  #   image: mariadb:10.4
+  #   container_name: mysql_db
+  #   ports:
+  #     - "3306:3306" # Expose MySQL on port 3306
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: sql123 # Set a root password
+  #     MYSQL_DATABASE: quick_chat # Name of your initial database
+  #     MYSQL_USER: user # MySQL user for Laravel and Node.js
+  #     MYSQL_PASSWORD: password # MySQL user password
+  #   volumes:
+  #     - mysql_data:/var/lib/mysql # Persist data on a Docker volume
+  #   networks:
+  #     - app-network
+
+  # Laravel Service
+  laravel:
+    build:
+      context: ./lara_be
+      dockerfile: Dockerfile
+    container_name: harry_laravel_app
+    ports:
+      - "8000:8000" # Expose Laravel on http://localhost:8000
+    volumes:
+      - ./lara_be:/var/www/html
+    networks:
+      - app-network
+    environment:
+      - PHP_VERSION=8.3
+      # - DB_CONNECTION=mysql
+      # - DB_HOST=mysql # The service name for MySQL
+      # - DB_PORT=3306
+      # - DB_DATABASE=my_database
+      # - DB_USERNAME=my_user
+      # - DB_PASSWORD=my_password
+
+  # Node.js Service
+  nodejs:
+    build:
+      context: ./njs_be
+      dockerfile: Dockerfile
+    container_name: harry_nodejs_app
+    ports:
+      - "3000:3000" # Expose Node.js on http://localhost:3000
+    volumes:
+      - ./njs_be:/src/app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
