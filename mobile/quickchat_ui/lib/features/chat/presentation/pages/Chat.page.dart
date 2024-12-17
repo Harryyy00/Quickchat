@@ -17,6 +17,7 @@ import 'package:quickchat_ui/features/chat/data/dto/ConversationsData.dto.dart';
 import 'package:quickchat_ui/features/chat/data/dto/GetConversations.dto.dart';
 import 'package:quickchat_ui/features/chat/usecase/DisposeChatData.usecase.dart';
 import 'package:quickchat_ui/features/chat/usecase/GetConversations.usecase.dart';
+import 'package:quickchat_ui/features/chat/usecase/SelecUsername.usecase.dart';
 import 'package:quickchat_ui/features/chat/usecase/SendChat.usecase.dart';
 
 @RoutePage()
@@ -40,6 +41,7 @@ class _ChatPageState extends State<ChatPage> {
   late GetConversationsUsecase _getConversationsUsecase;
   late SendChatChatUsecase _sendChatChatUsecase;
   late DisposeChatDataUsecase _disposeChatDataUsecase;
+  late SelectUsernameUsecase _selectUsernameUsecase;
 
   // late AutoScrollController _scrollController;
   Timer? _debounceTimer;
@@ -57,6 +59,7 @@ class _ChatPageState extends State<ChatPage> {
     _getConversationsUsecase = getIt<GetConversationsUsecase>();
     _sendChatChatUsecase = getIt<SendChatChatUsecase>();
     _disposeChatDataUsecase = getIt<DisposeChatDataUsecase>();
+    _selectUsernameUsecase = getIt<SelectUsernameUsecase>();
 
     _currentUser = types.User(
       id: _authBloc.state.loginDatas!.user.id,
@@ -80,6 +83,7 @@ class _ChatPageState extends State<ChatPage> {
     _debounceTimer?.cancel();
     _textController.dispose();
     _disposeChatDataUsecase.execute();
+    _selectUsernameUsecase.execute();
     super.dispose();
   }
 

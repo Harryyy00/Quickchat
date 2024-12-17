@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Domain\User\DTO;
-use App\Domain\User\Entities\User;
+use App\Domain\User\Entities\UserEntity;
 
 class SearchedUsersResultDto
 {
@@ -9,7 +9,7 @@ class SearchedUsersResultDto
     public int $maxPage;
 
     // must be a list of
-    /** @var User[] */
+    /** @var UserEntity[] */
     public array $users;
 
     public function __construct(int $currentPage, int $maxPage, array $users)

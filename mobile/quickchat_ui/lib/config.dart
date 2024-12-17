@@ -56,19 +56,19 @@ class ConfigImpl implements Config {
 
   /// Local Environment
   ///
-  // @override
-  // String get quickChatService =>
-  //     'http://192.168.254.108:8000/api'; //php artisan serve --host=0.0.0.0 --port=8000
+  @override
+  String get quickChatService =>
+      'http://192.168.254.135:8000/api'; //php artisan serve --host=0.0.0.0 --port=8000
 
-  // @override
-  // String get quickChatSSEService => 'http://192.168.254.108:3000';
+  @override
+  String get quickChatSSEService => 'http://192.168.254.135:3000';
 
   // harry
 
-  @override
-  String get quickChatService =>
-      'http://192.168.254.198:8000/api'; //php artisan serve --host=0.0.0.0 --port=8000
+  // @override
+  // String get quickChatService =>
+  //     'http://192.168.254.198:8000/api'; //php artisan serve --host=0.0.0.0 --port=8000
 
-  @override
-  String get quickChatSSEService => 'http://192.168.254.198:3000';
+  // @override
+  // String get quickChatSSEService => 'http://192.168.254.198:3000';
 }

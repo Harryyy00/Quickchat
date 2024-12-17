@@ -100,7 +100,8 @@ class _InitialPageState extends State<InitialPage> {
     if (state.stateStatus == StateStatus.errorState) {}
 
     if (state.stateStatus == StateStatus.loadedState) {
-      if (state.navigatePage == NavigatePage.loginPage) {
+      if (state.navigatePage == NavigatePage.loginPage &&
+          state.authStatus == AuthStatus.unauthenticated) {
         print('yohoo');
         _router.popAndPush(LoginRoute(delay: 2));
       }

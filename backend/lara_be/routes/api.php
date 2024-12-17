@@ -3,13 +3,14 @@
 
 use App\Http\Controllers\ChatController;
 use App\Http\Middleware\AuthenticateToken;
+use App\Http\Middleware\EnableCors;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 
 
 /// Auth
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login'])->middleware();
 
 /// User
 Route::post('/register', [UserController::class, 'registerUser']);

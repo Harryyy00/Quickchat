@@ -4,6 +4,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:quickchat_ui/core/logic/result.dart';
 import 'package:quickchat_ui/core/logic/state_status.dart';
+import 'package:quickchat_ui/features/authentication/data/dto/LoginUser.dto.dart';
+import 'package:quickchat_ui/features/authentication/domain/repositories/auth_repository.dart';
 import 'package:quickchat_ui/features/chat/data/dto/Conversation.dto.dart';
 import 'package:quickchat_ui/features/chat/data/dto/ConversationData.dto.dart';
 import 'package:quickchat_ui/features/chat/data/dto/Conversations.dto.dart';
@@ -19,6 +21,7 @@ part 'chat_state.dart';
 class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
   ChatsBloc({
     required this.chatRepository,
+    required this.authRepository,
   }) : super(ChatsState.initial()) {
     on<_GetConversation>(
         (_GetConversation event, Emitter<ChatsState> emit) async {
@@ -60,10 +63,6 @@ class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
           await chatRepository.getConversations(
         getConversations: event.getConversations,
       );
-
-      emit(state.copyWith(
-        selectedConversationId: event.getConversations.conversationsId,
-      ));
 
       if (result.isFailure) {
         emit(state.copyWith(
@@ -111,12 +110,10 @@ class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
       } else {
         emit(state.copyWith(
           chatStatus: StateStatus.loadedState,
-          isChatSent: true,
         ));
       }
       emit(state.copyWith(
         chatStatus: StateStatus.loadedState,
-        isChatSent: false,
       ));
     });
 
@@ -135,35 +132,64 @@ class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
             } else {
               add(const ChatsEvent.getConversation(
                   stateStatus: StateStatus.loadedState, page: 1));
-              final ConversationsDto message = event.getValue;
+              final Result<LoginUserDto> credentials =
+                  await authRepository.getCredentials();
 
-              final List<ConversationsDto> currentConversations =
-                  state.conversationsList.toList();
-
-              // Create the updated conversation list
-              final List<ConversationsDto> updatedConversations = [
-                ...currentConversations,
-                message,
+              final List<String> recipient = [
+                event.getValue.recipient,
+                event.getValue.sender
               ];
+              recipient.remove(credentials.getValue.username);
+              print(
+                  'selectedusr ${state.selectedUserName} : rece ${recipient[0]}');
 
-              emit(state.copyWith(
-                conversationsList: updatedConversations,
-                isChatUpdated: true,
-                chatStatus: StateStatus.loadedState,
-              ));
+              if (state.selectedUserName == recipient[0] ||
+                  state.selectedUserName == null) {
+                final ConversationsDto message = event.getValue;
+
+                final List<ConversationsDto> currentConversations =
+                    state.conversationsList.toList();
+
+                // Create the updated conversation list
+                final List<ConversationsDto> updatedConversations = [
+                  ...currentConversations,
+                  message,
+                ];
+
+                emit(state.copyWith(
+                  conversationsList: updatedConversations,
+                  chatStatus: StateStatus.loadedState,
+                  isChatConnected: true,
+                ));
+              }
             }
           }
           emit(state.copyWith(
-            isChatUpdated: false,
             chatStatus: StateStatus.loadedState,
           ));
         }
       },
     );
 
+    on<_SelectUsername>((_SelectUsername event, Emitter<ChatsState> emit) {
+      emit(state.copyWith(
+        selectedUserName: event.userName,
+      ));
+    });
+
+    on<_UnSelectUsername>((_UnSelectUsername event, Emitter<ChatsState> emit) {
+      emit(state.copyWith(
+        selectedUserName: null,
+      ));
+    });
+
     on<_DisposeChatStream>(
         (_DisposeChatStream event, Emitter<ChatsState> emit) {
       chatRepository.disposeChatStream();
+
+      emit(state.copyWith(
+        isChatConnected: false,
+      ));
     });
 
     on<_DisposeChatData>((_DisposeChatData event, Emitter<ChatsState> emit) {
@@ -222,4 +248,5 @@ class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
   // }
 
   final ChatRepository chatRepository;
+  final AuthRepository authRepository;
 }

@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:isolate';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
@@ -58,12 +57,9 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
         '${config.quickChatService}/login',
         data: jsonEncode(rawData),
       );
+      final Map<String, dynamic> result = response.data['data'];
 
-      // Use Isolate.run for heavy computation (in this case, parsing the response)
-      resultData = await Isolate.run(() {
-        final Map<String, dynamic> result = response.data['data'];
-        return LoginDatasDto.fromJson(result);
-      });
+      resultData = LoginDatasDto.fromJson(result);
     } on DioException catch (e) {
       throw checkErrResponse(e.response);
     } catch (e) {

@@ -10,12 +10,10 @@ class ChatsState with _$ChatsState {
     required List<ConversationDto> conversationList,
     ConversationsDataDto? conversations,
     required List<ConversationsDto> conversationsList,
-    String? selectedConversationId,
-    required bool isCurrentlyOnChatPage,
-    required bool isChatUpdated,
-    required bool isChatSent,
     required bool isConversationLoaded,
     required bool isConversationsLoaded,
+    required bool isChatConnected,
+    String? selectedUserName,
   }) = _ChatsState;
 
   factory ChatsState.initial() => const ChatsState(
@@ -23,10 +21,8 @@ class ChatsState with _$ChatsState {
         chatStatus: StateStatus.initialState,
         conversationList: <ConversationDto>[],
         conversationsList: <ConversationsDto>[],
-        isCurrentlyOnChatPage: false,
-        isChatUpdated: false,
-        isChatSent: false,
         isConversationLoaded: false,
         isConversationsLoaded: false,
+        isChatConnected: false,
       );
 }

@@ -12,7 +12,7 @@ _$ConversationDtoImpl _$$ConversationDtoImplFromJson(
       sender: json['sender'] as String,
       recipient: json['recipient'] as String,
       lastMessage: json['lastMessage'] as String,
-      timeStamp: DateTime.parse(json['timeStamp'] as String),
+      timeStamp: json['timeStamp'] as String,
       conversationsId: json['conversationsId'] as String,
     );
 
@@ -22,6 +22,6 @@ Map<String, dynamic> _$$ConversationDtoImplToJson(
       'sender': instance.sender,
       'recipient': instance.recipient,
       'lastMessage': instance.lastMessage,
-      'timeStamp': instance.timeStamp.toIso8601String(),
+      'timeStamp': instance.timeStamp,
       'conversationsId': instance.conversationsId,
     };

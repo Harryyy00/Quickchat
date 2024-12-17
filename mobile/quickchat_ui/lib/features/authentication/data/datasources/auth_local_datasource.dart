@@ -79,6 +79,7 @@ class AuthLocalDatasourceImpl implements AuthLocalDatasource {
     try {
       flutterSecureStorage.delete(key: CacheKeys.LOGGED_USERNAME);
       flutterSecureStorage.delete(key: CacheKeys.LOGGED_PASSWORD);
+      sharedPreferences.remove(CacheKeys.ACCESS_TOKEN);
       return unit;
     } catch (e) {
       throw CacheException(ERR_DEFAULT);

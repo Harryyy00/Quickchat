@@ -9,7 +9,7 @@ class ConversationDto with _$ConversationDto {
     required String sender,
     required String recipient,
     required String lastMessage,
-    required DateTime timeStamp,
+    required String timeStamp,
     required String conversationsId,
   }) = _ConversationDto;
 

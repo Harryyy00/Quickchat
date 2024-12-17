@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:isolate';
 
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
@@ -46,11 +45,9 @@ class PostsRemoteDatasourceImpl implements UserRemoteDatasource {
       // print('jaws ${response.data['data']}');
       // print('heheh ${UserDataDto.fromJson(reee)}');
 
-      resultData = await Isolate.run(() {
-        final Map<String, dynamic> result = response.data['data'];
+      final Map<String, dynamic> result = response.data['data'];
 
-        return UserDataDto.fromJson(result);
-      });
+      resultData = UserDataDto.fromJson(result);
     } on DioException catch (e) {
       throw checkErrResponse(e.response);
     } catch (e) {
@@ -79,10 +76,9 @@ class PostsRemoteDatasourceImpl implements UserRemoteDatasource {
         data: jsonEncode(rawData),
       );
 
-      searchData = await Isolate.run(() {
-        final Map<String, dynamic> result = response.data['data'];
-        return SearchDataDto.fromJson(result);
-      });
+      final Map<String, dynamic> result = response.data['data'];
+
+      searchData = SearchDataDto.fromJson(result);
     } on DioException catch (e) {
       throw checkErrResponse(e.response);
     } catch (e) {
