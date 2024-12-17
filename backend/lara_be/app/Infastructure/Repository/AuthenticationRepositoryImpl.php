@@ -4,29 +4,25 @@ namespace App\Infastructure\Repository;
 use App\Domain\Auth\Repositories\AuthenticationRepository;
 use App\Domain\Auth\DTO\LoginDto;
 use App\Domain\Auth\DTO\LoggedDataDto;
-use App\Domain\User\Entities\User;
+use App\Domain\User\Entities\UserEntity;
 use App\Domain\Auth\Entities\ErrorResponse;
+use App\Infastructure\Eloquent\User;
 use App\Utils\Either;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
 use Firebase\JWT\JWT;
 
 class AuthenticationRepositoryImpl implements AuthenticationRepository
 {
     public function login(LoginDto $loginDto): Either
     {
-        $userRecord = DB::table('users')
-            ->where('userName', $loginDto->userName)
-            ->first();
+        $userRecord = User::where('userName', $loginDto->userName)->first();
 
         if (!$userRecord || !Hash::check($loginDto->password, $userRecord->password)) {
             $errorResponse = new ErrorResponse(400, 'Invalid credentials');
             return Either::left($errorResponse);
         }
 
-       
-
-        $user = new User(
+        $user = new UserEntity(
             $userRecord->id,
             $userRecord->name,
             $userRecord->userName,

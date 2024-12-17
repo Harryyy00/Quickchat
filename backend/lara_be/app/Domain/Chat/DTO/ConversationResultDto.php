@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Domain\Chat\DTO;
-use App\Domain\Chat\Entities\Conversation;
+use App\Domain\Chat\Entities\ConversationEntity;
 
 class ConversationResultDto
 {
@@ -9,7 +9,7 @@ class ConversationResultDto
     public int $maxPage;
 
     // must be a list of entity
-    /** @var Conversation[] */
+    /** @var ConversationEntity[] */
     public array $conversationList;
 
     public function __construct(int $currentPage, int $maxPage, array $conversationList)

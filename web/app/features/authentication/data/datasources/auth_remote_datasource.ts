@@ -1,18 +1,20 @@
 import axios, { AxiosError } from "axios";
 import { LoginUserDto } from "../dto/LoginUser.dto";
 import { LoginDatasDto } from "../dto/LoginData.dto";
-import { config } from "../../../../core/config";
 import axiosInstance from "@/app/core/interceptor";
+import { config } from "@/app/core/config";
+import { RegisterUserDto } from "../dto/RegisterUser.dto";
 
 export class AuthRemoteDatasource {
   async loginUser(loginUserDto: LoginUserDto): Promise<LoginDatasDto> {
+    let response;
     try {
       const rawData = {
         userName: loginUserDto.userName,
         password: loginUserDto.password,
       };
 
-      const response = await axiosInstance.post<{ data: any }>(
+      response = await axiosInstance.post<{ data: any }>(
         `${config.quickChatService}/login`,
         rawData // axios will automatically stringify the body
       );
@@ -23,47 +25,37 @@ export class AuthRemoteDatasource {
 
       throw new Error("Invalid response format");
     } catch (error) {
-      console.log(`EEERRRR: ${error}`);
-      throw this.checkErrResponse(error);
+      throw new Error(`${error}`);
     }
   }
 
-  async logoutUser(): Promise<void> {
+  async registerUser(registerUserDto: RegisterUserDto): Promise<void> {
+    let response;
     try {
-      await axiosInstance.post(`${config.quickChatService}/logout`);
+      const rawData = {
+        name: registerUserDto.name,
+        userName: registerUserDto.userName,
+        password: registerUserDto.password,
+        password_confirmation: registerUserDto.password,
+      };
+
+      response = await axiosInstance.post<{ data: any }>(
+        `${config.quickChatService}/register`,
+        rawData
+      );
+
+      if (response.status === 201) {
+        return;
+      }
+
+      throw new Error("Invalid response format");
     } catch (error) {
-      throw this.checkErrResponse(error);
+      throw new Error(`${error}`);
     }
   }
 
   // Private Methods
   //
-  private checkErrResponse(error: any): Error {
-    if (axios.isAxiosError(error)) {
-      const axiosError = error as AxiosError<any>;
-      const response = axiosError.response;
-
-      if (!response) {
-        return new Error("No response received");
-      }
-
-      // Handle specific error cases
-      if (response.data?.message?.message === "jwt expired") {
-        return new Error("Session expired");
-      }
-
-      // Return the error message from the response if available
-      const errorMessage =
-        response.data?.message?.message ||
-        response.data?.message ||
-        response.data?.error ||
-        "Unknown error occurred";
-
-      return new Error(errorMessage);
-    }
-
-    return new Error("An unexpected error occurred");
-  }
 
   private parseLoginData(data: any): LoginDatasDto {
     console.log(`dita: ${data}`);

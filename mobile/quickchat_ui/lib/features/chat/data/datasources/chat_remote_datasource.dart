@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:isolate';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -73,11 +72,9 @@ class ChatRemoteDatasourceImpl implements ChatRemoteDatasource {
         data: jsonEncode(rawData),
       );
 
-      // Use Isolate.run for offloading the JSON parsing
-      resultData = await Isolate.run(() {
-        final Map<String, dynamic> result = response.data['data'];
-        return ConversationDataDto.fromJson(result);
-      });
+      final Map<String, dynamic> result = response.data['data'];
+
+      resultData = ConversationDataDto.fromJson(result);
     } on DioException catch (e) {
       throw checkErrResponse(e.response);
     } catch (e) {
@@ -109,12 +106,9 @@ class ChatRemoteDatasourceImpl implements ChatRemoteDatasource {
         '${config.quickChatService}/conversations',
         data: jsonEncode(rawData),
       );
+      final Map<String, dynamic> result = response.data['data'];
 
-      // Use Isolate.run for offloading the JSON parsing
-      resultData = await Isolate.run(() {
-        final Map<String, dynamic> result = response.data['data'];
-        return ConversationsDataDto.fromJson(result);
-      });
+      resultData = ConversationsDataDto.fromJson(result);
     } on DioException catch (e) {
       throw checkErrResponse(e.response);
     } catch (e) {
@@ -161,13 +155,5 @@ class ChatRemoteDatasourceImpl implements ChatRemoteDatasource {
     } else {
       throw checkErrResponse(response);
     }
-  }
-
-  /// private methods
-  ///
-  // Function to decode JSON in the background isolate
-  ConversationsDto _parseJsonInBackground(String jsonData) {
-    final Map<String, dynamic> data = json.decode(jsonData);
-    return ConversationsDto.fromJson(data);
   }
 }

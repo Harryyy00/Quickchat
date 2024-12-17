@@ -1,7 +1,7 @@
 import { jwtDecode } from "jwt-decode";
 
 export function isTokenValid() {
-  const token = localStorage.getItem("access_token");
+  const token = localStorage.getItem("access_token") ?? undefined;
   if (!token) return false;
 
   const decodedToken = jwtDecode(token);

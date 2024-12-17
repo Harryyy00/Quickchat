@@ -22,6 +22,8 @@ mixin _$ChatsEvent {
     required TResult Function() disposeChatStream,
     required TResult Function(StateStatus stateStatus, int page)
         getConversation,
+    required TResult Function(String userName) selectUsername,
+    required TResult Function() unSelectUsername,
     required TResult Function(
             StateStatus stateStatus, GetConversationsDto getConversations)
         getConversations,
@@ -36,6 +38,8 @@ mixin _$ChatsEvent {
     TResult? Function()? connectChatStream,
     TResult? Function()? disposeChatStream,
     TResult? Function(StateStatus stateStatus, int page)? getConversation,
+    TResult? Function(String userName)? selectUsername,
+    TResult? Function()? unSelectUsername,
     TResult? Function(
             StateStatus stateStatus, GetConversationsDto getConversations)?
         getConversations,
@@ -50,6 +54,8 @@ mixin _$ChatsEvent {
     TResult Function()? connectChatStream,
     TResult Function()? disposeChatStream,
     TResult Function(StateStatus stateStatus, int page)? getConversation,
+    TResult Function(String userName)? selectUsername,
+    TResult Function()? unSelectUsername,
     TResult Function(
             StateStatus stateStatus, GetConversationsDto getConversations)?
         getConversations,
@@ -65,6 +71,8 @@ mixin _$ChatsEvent {
     required TResult Function(_ConnectChatStream value) connectChatStream,
     required TResult Function(_DisposeChatStream value) disposeChatStream,
     required TResult Function(_GetConversation value) getConversation,
+    required TResult Function(_SelectUsername value) selectUsername,
+    required TResult Function(_UnSelectUsername value) unSelectUsername,
     required TResult Function(_GetConversations value) getConversations,
     required TResult Function(_DisposeChatData value) disposeChatData,
     required TResult Function(_SendChat value) sendChat,
@@ -76,6 +84,8 @@ mixin _$ChatsEvent {
     TResult? Function(_ConnectChatStream value)? connectChatStream,
     TResult? Function(_DisposeChatStream value)? disposeChatStream,
     TResult? Function(_GetConversation value)? getConversation,
+    TResult? Function(_SelectUsername value)? selectUsername,
+    TResult? Function(_UnSelectUsername value)? unSelectUsername,
     TResult? Function(_GetConversations value)? getConversations,
     TResult? Function(_DisposeChatData value)? disposeChatData,
     TResult? Function(_SendChat value)? sendChat,
@@ -87,6 +97,8 @@ mixin _$ChatsEvent {
     TResult Function(_ConnectChatStream value)? connectChatStream,
     TResult Function(_DisposeChatStream value)? disposeChatStream,
     TResult Function(_GetConversation value)? getConversation,
+    TResult Function(_SelectUsername value)? selectUsername,
+    TResult Function(_UnSelectUsername value)? unSelectUsername,
     TResult Function(_GetConversations value)? getConversations,
     TResult Function(_DisposeChatData value)? disposeChatData,
     TResult Function(_SendChat value)? sendChat,
@@ -162,6 +174,8 @@ class _$ConnectChatStreamImpl implements _ConnectChatStream {
     required TResult Function() disposeChatStream,
     required TResult Function(StateStatus stateStatus, int page)
         getConversation,
+    required TResult Function(String userName) selectUsername,
+    required TResult Function() unSelectUsername,
     required TResult Function(
             StateStatus stateStatus, GetConversationsDto getConversations)
         getConversations,
@@ -179,6 +193,8 @@ class _$ConnectChatStreamImpl implements _ConnectChatStream {
     TResult? Function()? connectChatStream,
     TResult? Function()? disposeChatStream,
     TResult? Function(StateStatus stateStatus, int page)? getConversation,
+    TResult? Function(String userName)? selectUsername,
+    TResult? Function()? unSelectUsername,
     TResult? Function(
             StateStatus stateStatus, GetConversationsDto getConversations)?
         getConversations,
@@ -196,6 +212,8 @@ class _$ConnectChatStreamImpl implements _ConnectChatStream {
     TResult Function()? connectChatStream,
     TResult Function()? disposeChatStream,
     TResult Function(StateStatus stateStatus, int page)? getConversation,
+    TResult Function(String userName)? selectUsername,
+    TResult Function()? unSelectUsername,
     TResult Function(
             StateStatus stateStatus, GetConversationsDto getConversations)?
         getConversations,
@@ -217,6 +235,8 @@ class _$ConnectChatStreamImpl implements _ConnectChatStream {
     required TResult Function(_ConnectChatStream value) connectChatStream,
     required TResult Function(_DisposeChatStream value) disposeChatStream,
     required TResult Function(_GetConversation value) getConversation,
+    required TResult Function(_SelectUsername value) selectUsername,
+    required TResult Function(_UnSelectUsername value) unSelectUsername,
     required TResult Function(_GetConversations value) getConversations,
     required TResult Function(_DisposeChatData value) disposeChatData,
     required TResult Function(_SendChat value) sendChat,
@@ -231,6 +251,8 @@ class _$ConnectChatStreamImpl implements _ConnectChatStream {
     TResult? Function(_ConnectChatStream value)? connectChatStream,
     TResult? Function(_DisposeChatStream value)? disposeChatStream,
     TResult? Function(_GetConversation value)? getConversation,
+    TResult? Function(_SelectUsername value)? selectUsername,
+    TResult? Function(_UnSelectUsername value)? unSelectUsername,
     TResult? Function(_GetConversations value)? getConversations,
     TResult? Function(_DisposeChatData value)? disposeChatData,
     TResult? Function(_SendChat value)? sendChat,
@@ -245,6 +267,8 @@ class _$ConnectChatStreamImpl implements _ConnectChatStream {
     TResult Function(_ConnectChatStream value)? connectChatStream,
     TResult Function(_DisposeChatStream value)? disposeChatStream,
     TResult Function(_GetConversation value)? getConversation,
+    TResult Function(_SelectUsername value)? selectUsername,
+    TResult Function(_UnSelectUsername value)? unSelectUsername,
     TResult Function(_GetConversations value)? getConversations,
     TResult Function(_DisposeChatData value)? disposeChatData,
     TResult Function(_SendChat value)? sendChat,
@@ -307,6 +331,8 @@ class _$DisposeChatStreamImpl implements _DisposeChatStream {
     required TResult Function() disposeChatStream,
     required TResult Function(StateStatus stateStatus, int page)
         getConversation,
+    required TResult Function(String userName) selectUsername,
+    required TResult Function() unSelectUsername,
     required TResult Function(
             StateStatus stateStatus, GetConversationsDto getConversations)
         getConversations,
@@ -324,6 +350,8 @@ class _$DisposeChatStreamImpl implements _DisposeChatStream {
     TResult? Function()? connectChatStream,
     TResult? Function()? disposeChatStream,
     TResult? Function(StateStatus stateStatus, int page)? getConversation,
+    TResult? Function(String userName)? selectUsername,
+    TResult? Function()? unSelectUsername,
     TResult? Function(
             StateStatus stateStatus, GetConversationsDto getConversations)?
         getConversations,
@@ -341,6 +369,8 @@ class _$DisposeChatStreamImpl implements _DisposeChatStream {
     TResult Function()? connectChatStream,
     TResult Function()? disposeChatStream,
     TResult Function(StateStatus stateStatus, int page)? getConversation,
+    TResult Function(String userName)? selectUsername,
+    TResult Function()? unSelectUsername,
     TResult Function(
             StateStatus stateStatus, GetConversationsDto getConversations)?
         getConversations,
@@ -362,6 +392,8 @@ class _$DisposeChatStreamImpl implements _DisposeChatStream {
     required TResult Function(_ConnectChatStream value) connectChatStream,
     required TResult Function(_DisposeChatStream value) disposeChatStream,
     required TResult Function(_GetConversation value) getConversation,
+    required TResult Function(_SelectUsername value) selectUsername,
+    required TResult Function(_UnSelectUsername value) unSelectUsername,
     required TResult Function(_GetConversations value) getConversations,
     required TResult Function(_DisposeChatData value) disposeChatData,
     required TResult Function(_SendChat value) sendChat,
@@ -376,6 +408,8 @@ class _$DisposeChatStreamImpl implements _DisposeChatStream {
     TResult? Function(_ConnectChatStream value)? connectChatStream,
     TResult? Function(_DisposeChatStream value)? disposeChatStream,
     TResult? Function(_GetConversation value)? getConversation,
+    TResult? Function(_SelectUsername value)? selectUsername,
+    TResult? Function(_UnSelectUsername value)? unSelectUsername,
     TResult? Function(_GetConversations value)? getConversations,
     TResult? Function(_DisposeChatData value)? disposeChatData,
     TResult? Function(_SendChat value)? sendChat,
@@ -390,6 +424,8 @@ class _$DisposeChatStreamImpl implements _DisposeChatStream {
     TResult Function(_ConnectChatStream value)? connectChatStream,
     TResult Function(_DisposeChatStream value)? disposeChatStream,
     TResult Function(_GetConversation value)? getConversation,
+    TResult Function(_SelectUsername value)? selectUsername,
+    TResult Function(_UnSelectUsername value)? unSelectUsername,
     TResult Function(_GetConversations value)? getConversations,
     TResult Function(_DisposeChatData value)? disposeChatData,
     TResult Function(_SendChat value)? sendChat,
@@ -489,6 +525,8 @@ class _$GetConversationImpl implements _GetConversation {
     required TResult Function() disposeChatStream,
     required TResult Function(StateStatus stateStatus, int page)
         getConversation,
+    required TResult Function(String userName) selectUsername,
+    required TResult Function() unSelectUsername,
     required TResult Function(
             StateStatus stateStatus, GetConversationsDto getConversations)
         getConversations,
@@ -506,6 +544,8 @@ class _$GetConversationImpl implements _GetConversation {
     TResult? Function()? connectChatStream,
     TResult? Function()? disposeChatStream,
     TResult? Function(StateStatus stateStatus, int page)? getConversation,
+    TResult? Function(String userName)? selectUsername,
+    TResult? Function()? unSelectUsername,
     TResult? Function(
             StateStatus stateStatus, GetConversationsDto getConversations)?
         getConversations,
@@ -523,6 +563,8 @@ class _$GetConversationImpl implements _GetConversation {
     TResult Function()? connectChatStream,
     TResult Function()? disposeChatStream,
     TResult Function(StateStatus stateStatus, int page)? getConversation,
+    TResult Function(String userName)? selectUsername,
+    TResult Function()? unSelectUsername,
     TResult Function(
             StateStatus stateStatus, GetConversationsDto getConversations)?
         getConversations,
@@ -544,6 +586,8 @@ class _$GetConversationImpl implements _GetConversation {
     required TResult Function(_ConnectChatStream value) connectChatStream,
     required TResult Function(_DisposeChatStream value) disposeChatStream,
     required TResult Function(_GetConversation value) getConversation,
+    required TResult Function(_SelectUsername value) selectUsername,
+    required TResult Function(_UnSelectUsername value) unSelectUsername,
     required TResult Function(_GetConversations value) getConversations,
     required TResult Function(_DisposeChatData value) disposeChatData,
     required TResult Function(_SendChat value) sendChat,
@@ -558,6 +602,8 @@ class _$GetConversationImpl implements _GetConversation {
     TResult? Function(_ConnectChatStream value)? connectChatStream,
     TResult? Function(_DisposeChatStream value)? disposeChatStream,
     TResult? Function(_GetConversation value)? getConversation,
+    TResult? Function(_SelectUsername value)? selectUsername,
+    TResult? Function(_UnSelectUsername value)? unSelectUsername,
     TResult? Function(_GetConversations value)? getConversations,
     TResult? Function(_DisposeChatData value)? disposeChatData,
     TResult? Function(_SendChat value)? sendChat,
@@ -572,6 +618,8 @@ class _$GetConversationImpl implements _GetConversation {
     TResult Function(_ConnectChatStream value)? connectChatStream,
     TResult Function(_DisposeChatStream value)? disposeChatStream,
     TResult Function(_GetConversation value)? getConversation,
+    TResult Function(_SelectUsername value)? selectUsername,
+    TResult Function(_UnSelectUsername value)? unSelectUsername,
     TResult Function(_GetConversations value)? getConversations,
     TResult Function(_DisposeChatData value)? disposeChatData,
     TResult Function(_SendChat value)? sendChat,
@@ -598,6 +646,358 @@ abstract class _GetConversation implements ChatsEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetConversationImplCopyWith<_$GetConversationImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SelectUsernameImplCopyWith<$Res> {
+  factory _$$SelectUsernameImplCopyWith(_$SelectUsernameImpl value,
+          $Res Function(_$SelectUsernameImpl) then) =
+      __$$SelectUsernameImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String userName});
+}
+
+/// @nodoc
+class __$$SelectUsernameImplCopyWithImpl<$Res>
+    extends _$ChatsEventCopyWithImpl<$Res, _$SelectUsernameImpl>
+    implements _$$SelectUsernameImplCopyWith<$Res> {
+  __$$SelectUsernameImplCopyWithImpl(
+      _$SelectUsernameImpl _value, $Res Function(_$SelectUsernameImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ChatsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userName = null,
+  }) {
+    return _then(_$SelectUsernameImpl(
+      userName: null == userName
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectUsernameImpl implements _SelectUsername {
+  const _$SelectUsernameImpl({required this.userName});
+
+  @override
+  final String userName;
+
+  @override
+  String toString() {
+    return 'ChatsEvent.selectUsername(userName: $userName)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectUsernameImpl &&
+            (identical(other.userName, userName) ||
+                other.userName == userName));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userName);
+
+  /// Create a copy of ChatsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectUsernameImplCopyWith<_$SelectUsernameImpl> get copyWith =>
+      __$$SelectUsernameImplCopyWithImpl<_$SelectUsernameImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() connectChatStream,
+    required TResult Function() disposeChatStream,
+    required TResult Function(StateStatus stateStatus, int page)
+        getConversation,
+    required TResult Function(String userName) selectUsername,
+    required TResult Function() unSelectUsername,
+    required TResult Function(
+            StateStatus stateStatus, GetConversationsDto getConversations)
+        getConversations,
+    required TResult Function() disposeChatData,
+    required TResult Function(String recipient, String content) sendChat,
+    required TResult Function(StateStatus stateStatus, String? errorMessage)
+        changeStateStatus,
+  }) {
+    return selectUsername(userName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? connectChatStream,
+    TResult? Function()? disposeChatStream,
+    TResult? Function(StateStatus stateStatus, int page)? getConversation,
+    TResult? Function(String userName)? selectUsername,
+    TResult? Function()? unSelectUsername,
+    TResult? Function(
+            StateStatus stateStatus, GetConversationsDto getConversations)?
+        getConversations,
+    TResult? Function()? disposeChatData,
+    TResult? Function(String recipient, String content)? sendChat,
+    TResult? Function(StateStatus stateStatus, String? errorMessage)?
+        changeStateStatus,
+  }) {
+    return selectUsername?.call(userName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? connectChatStream,
+    TResult Function()? disposeChatStream,
+    TResult Function(StateStatus stateStatus, int page)? getConversation,
+    TResult Function(String userName)? selectUsername,
+    TResult Function()? unSelectUsername,
+    TResult Function(
+            StateStatus stateStatus, GetConversationsDto getConversations)?
+        getConversations,
+    TResult Function()? disposeChatData,
+    TResult Function(String recipient, String content)? sendChat,
+    TResult Function(StateStatus stateStatus, String? errorMessage)?
+        changeStateStatus,
+    required TResult orElse(),
+  }) {
+    if (selectUsername != null) {
+      return selectUsername(userName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ConnectChatStream value) connectChatStream,
+    required TResult Function(_DisposeChatStream value) disposeChatStream,
+    required TResult Function(_GetConversation value) getConversation,
+    required TResult Function(_SelectUsername value) selectUsername,
+    required TResult Function(_UnSelectUsername value) unSelectUsername,
+    required TResult Function(_GetConversations value) getConversations,
+    required TResult Function(_DisposeChatData value) disposeChatData,
+    required TResult Function(_SendChat value) sendChat,
+    required TResult Function(_ChangeStateStatus value) changeStateStatus,
+  }) {
+    return selectUsername(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ConnectChatStream value)? connectChatStream,
+    TResult? Function(_DisposeChatStream value)? disposeChatStream,
+    TResult? Function(_GetConversation value)? getConversation,
+    TResult? Function(_SelectUsername value)? selectUsername,
+    TResult? Function(_UnSelectUsername value)? unSelectUsername,
+    TResult? Function(_GetConversations value)? getConversations,
+    TResult? Function(_DisposeChatData value)? disposeChatData,
+    TResult? Function(_SendChat value)? sendChat,
+    TResult? Function(_ChangeStateStatus value)? changeStateStatus,
+  }) {
+    return selectUsername?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ConnectChatStream value)? connectChatStream,
+    TResult Function(_DisposeChatStream value)? disposeChatStream,
+    TResult Function(_GetConversation value)? getConversation,
+    TResult Function(_SelectUsername value)? selectUsername,
+    TResult Function(_UnSelectUsername value)? unSelectUsername,
+    TResult Function(_GetConversations value)? getConversations,
+    TResult Function(_DisposeChatData value)? disposeChatData,
+    TResult Function(_SendChat value)? sendChat,
+    TResult Function(_ChangeStateStatus value)? changeStateStatus,
+    required TResult orElse(),
+  }) {
+    if (selectUsername != null) {
+      return selectUsername(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectUsername implements ChatsEvent {
+  const factory _SelectUsername({required final String userName}) =
+      _$SelectUsernameImpl;
+
+  String get userName;
+
+  /// Create a copy of ChatsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SelectUsernameImplCopyWith<_$SelectUsernameImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UnSelectUsernameImplCopyWith<$Res> {
+  factory _$$UnSelectUsernameImplCopyWith(_$UnSelectUsernameImpl value,
+          $Res Function(_$UnSelectUsernameImpl) then) =
+      __$$UnSelectUsernameImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UnSelectUsernameImplCopyWithImpl<$Res>
+    extends _$ChatsEventCopyWithImpl<$Res, _$UnSelectUsernameImpl>
+    implements _$$UnSelectUsernameImplCopyWith<$Res> {
+  __$$UnSelectUsernameImplCopyWithImpl(_$UnSelectUsernameImpl _value,
+      $Res Function(_$UnSelectUsernameImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ChatsEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$UnSelectUsernameImpl implements _UnSelectUsername {
+  const _$UnSelectUsernameImpl();
+
+  @override
+  String toString() {
+    return 'ChatsEvent.unSelectUsername()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UnSelectUsernameImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() connectChatStream,
+    required TResult Function() disposeChatStream,
+    required TResult Function(StateStatus stateStatus, int page)
+        getConversation,
+    required TResult Function(String userName) selectUsername,
+    required TResult Function() unSelectUsername,
+    required TResult Function(
+            StateStatus stateStatus, GetConversationsDto getConversations)
+        getConversations,
+    required TResult Function() disposeChatData,
+    required TResult Function(String recipient, String content) sendChat,
+    required TResult Function(StateStatus stateStatus, String? errorMessage)
+        changeStateStatus,
+  }) {
+    return unSelectUsername();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? connectChatStream,
+    TResult? Function()? disposeChatStream,
+    TResult? Function(StateStatus stateStatus, int page)? getConversation,
+    TResult? Function(String userName)? selectUsername,
+    TResult? Function()? unSelectUsername,
+    TResult? Function(
+            StateStatus stateStatus, GetConversationsDto getConversations)?
+        getConversations,
+    TResult? Function()? disposeChatData,
+    TResult? Function(String recipient, String content)? sendChat,
+    TResult? Function(StateStatus stateStatus, String? errorMessage)?
+        changeStateStatus,
+  }) {
+    return unSelectUsername?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? connectChatStream,
+    TResult Function()? disposeChatStream,
+    TResult Function(StateStatus stateStatus, int page)? getConversation,
+    TResult Function(String userName)? selectUsername,
+    TResult Function()? unSelectUsername,
+    TResult Function(
+            StateStatus stateStatus, GetConversationsDto getConversations)?
+        getConversations,
+    TResult Function()? disposeChatData,
+    TResult Function(String recipient, String content)? sendChat,
+    TResult Function(StateStatus stateStatus, String? errorMessage)?
+        changeStateStatus,
+    required TResult orElse(),
+  }) {
+    if (unSelectUsername != null) {
+      return unSelectUsername();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ConnectChatStream value) connectChatStream,
+    required TResult Function(_DisposeChatStream value) disposeChatStream,
+    required TResult Function(_GetConversation value) getConversation,
+    required TResult Function(_SelectUsername value) selectUsername,
+    required TResult Function(_UnSelectUsername value) unSelectUsername,
+    required TResult Function(_GetConversations value) getConversations,
+    required TResult Function(_DisposeChatData value) disposeChatData,
+    required TResult Function(_SendChat value) sendChat,
+    required TResult Function(_ChangeStateStatus value) changeStateStatus,
+  }) {
+    return unSelectUsername(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ConnectChatStream value)? connectChatStream,
+    TResult? Function(_DisposeChatStream value)? disposeChatStream,
+    TResult? Function(_GetConversation value)? getConversation,
+    TResult? Function(_SelectUsername value)? selectUsername,
+    TResult? Function(_UnSelectUsername value)? unSelectUsername,
+    TResult? Function(_GetConversations value)? getConversations,
+    TResult? Function(_DisposeChatData value)? disposeChatData,
+    TResult? Function(_SendChat value)? sendChat,
+    TResult? Function(_ChangeStateStatus value)? changeStateStatus,
+  }) {
+    return unSelectUsername?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ConnectChatStream value)? connectChatStream,
+    TResult Function(_DisposeChatStream value)? disposeChatStream,
+    TResult Function(_GetConversation value)? getConversation,
+    TResult Function(_SelectUsername value)? selectUsername,
+    TResult Function(_UnSelectUsername value)? unSelectUsername,
+    TResult Function(_GetConversations value)? getConversations,
+    TResult Function(_DisposeChatData value)? disposeChatData,
+    TResult Function(_SendChat value)? sendChat,
+    TResult Function(_ChangeStateStatus value)? changeStateStatus,
+    required TResult orElse(),
+  }) {
+    if (unSelectUsername != null) {
+      return unSelectUsername(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UnSelectUsername implements ChatsEvent {
+  const factory _UnSelectUsername() = _$UnSelectUsernameImpl;
 }
 
 /// @nodoc
@@ -696,6 +1096,8 @@ class _$GetConversationsImpl implements _GetConversations {
     required TResult Function() disposeChatStream,
     required TResult Function(StateStatus stateStatus, int page)
         getConversation,
+    required TResult Function(String userName) selectUsername,
+    required TResult Function() unSelectUsername,
     required TResult Function(
             StateStatus stateStatus, GetConversationsDto getConversations)
         getConversations,
@@ -713,6 +1115,8 @@ class _$GetConversationsImpl implements _GetConversations {
     TResult? Function()? connectChatStream,
     TResult? Function()? disposeChatStream,
     TResult? Function(StateStatus stateStatus, int page)? getConversation,
+    TResult? Function(String userName)? selectUsername,
+    TResult? Function()? unSelectUsername,
     TResult? Function(
             StateStatus stateStatus, GetConversationsDto getConversations)?
         getConversations,
@@ -730,6 +1134,8 @@ class _$GetConversationsImpl implements _GetConversations {
     TResult Function()? connectChatStream,
     TResult Function()? disposeChatStream,
     TResult Function(StateStatus stateStatus, int page)? getConversation,
+    TResult Function(String userName)? selectUsername,
+    TResult Function()? unSelectUsername,
     TResult Function(
             StateStatus stateStatus, GetConversationsDto getConversations)?
         getConversations,
@@ -751,6 +1157,8 @@ class _$GetConversationsImpl implements _GetConversations {
     required TResult Function(_ConnectChatStream value) connectChatStream,
     required TResult Function(_DisposeChatStream value) disposeChatStream,
     required TResult Function(_GetConversation value) getConversation,
+    required TResult Function(_SelectUsername value) selectUsername,
+    required TResult Function(_UnSelectUsername value) unSelectUsername,
     required TResult Function(_GetConversations value) getConversations,
     required TResult Function(_DisposeChatData value) disposeChatData,
     required TResult Function(_SendChat value) sendChat,
@@ -765,6 +1173,8 @@ class _$GetConversationsImpl implements _GetConversations {
     TResult? Function(_ConnectChatStream value)? connectChatStream,
     TResult? Function(_DisposeChatStream value)? disposeChatStream,
     TResult? Function(_GetConversation value)? getConversation,
+    TResult? Function(_SelectUsername value)? selectUsername,
+    TResult? Function(_UnSelectUsername value)? unSelectUsername,
     TResult? Function(_GetConversations value)? getConversations,
     TResult? Function(_DisposeChatData value)? disposeChatData,
     TResult? Function(_SendChat value)? sendChat,
@@ -779,6 +1189,8 @@ class _$GetConversationsImpl implements _GetConversations {
     TResult Function(_ConnectChatStream value)? connectChatStream,
     TResult Function(_DisposeChatStream value)? disposeChatStream,
     TResult Function(_GetConversation value)? getConversation,
+    TResult Function(_SelectUsername value)? selectUsername,
+    TResult Function(_UnSelectUsername value)? unSelectUsername,
     TResult Function(_GetConversations value)? getConversations,
     TResult Function(_DisposeChatData value)? disposeChatData,
     TResult Function(_SendChat value)? sendChat,
@@ -853,6 +1265,8 @@ class _$DisposeChatDataImpl implements _DisposeChatData {
     required TResult Function() disposeChatStream,
     required TResult Function(StateStatus stateStatus, int page)
         getConversation,
+    required TResult Function(String userName) selectUsername,
+    required TResult Function() unSelectUsername,
     required TResult Function(
             StateStatus stateStatus, GetConversationsDto getConversations)
         getConversations,
@@ -870,6 +1284,8 @@ class _$DisposeChatDataImpl implements _DisposeChatData {
     TResult? Function()? connectChatStream,
     TResult? Function()? disposeChatStream,
     TResult? Function(StateStatus stateStatus, int page)? getConversation,
+    TResult? Function(String userName)? selectUsername,
+    TResult? Function()? unSelectUsername,
     TResult? Function(
             StateStatus stateStatus, GetConversationsDto getConversations)?
         getConversations,
@@ -887,6 +1303,8 @@ class _$DisposeChatDataImpl implements _DisposeChatData {
     TResult Function()? connectChatStream,
     TResult Function()? disposeChatStream,
     TResult Function(StateStatus stateStatus, int page)? getConversation,
+    TResult Function(String userName)? selectUsername,
+    TResult Function()? unSelectUsername,
     TResult Function(
             StateStatus stateStatus, GetConversationsDto getConversations)?
         getConversations,
@@ -908,6 +1326,8 @@ class _$DisposeChatDataImpl implements _DisposeChatData {
     required TResult Function(_ConnectChatStream value) connectChatStream,
     required TResult Function(_DisposeChatStream value) disposeChatStream,
     required TResult Function(_GetConversation value) getConversation,
+    required TResult Function(_SelectUsername value) selectUsername,
+    required TResult Function(_UnSelectUsername value) unSelectUsername,
     required TResult Function(_GetConversations value) getConversations,
     required TResult Function(_DisposeChatData value) disposeChatData,
     required TResult Function(_SendChat value) sendChat,
@@ -922,6 +1342,8 @@ class _$DisposeChatDataImpl implements _DisposeChatData {
     TResult? Function(_ConnectChatStream value)? connectChatStream,
     TResult? Function(_DisposeChatStream value)? disposeChatStream,
     TResult? Function(_GetConversation value)? getConversation,
+    TResult? Function(_SelectUsername value)? selectUsername,
+    TResult? Function(_UnSelectUsername value)? unSelectUsername,
     TResult? Function(_GetConversations value)? getConversations,
     TResult? Function(_DisposeChatData value)? disposeChatData,
     TResult? Function(_SendChat value)? sendChat,
@@ -936,6 +1358,8 @@ class _$DisposeChatDataImpl implements _DisposeChatData {
     TResult Function(_ConnectChatStream value)? connectChatStream,
     TResult Function(_DisposeChatStream value)? disposeChatStream,
     TResult Function(_GetConversation value)? getConversation,
+    TResult Function(_SelectUsername value)? selectUsername,
+    TResult Function(_UnSelectUsername value)? unSelectUsername,
     TResult Function(_GetConversations value)? getConversations,
     TResult Function(_DisposeChatData value)? disposeChatData,
     TResult Function(_SendChat value)? sendChat,
@@ -1034,6 +1458,8 @@ class _$SendChatImpl implements _SendChat {
     required TResult Function() disposeChatStream,
     required TResult Function(StateStatus stateStatus, int page)
         getConversation,
+    required TResult Function(String userName) selectUsername,
+    required TResult Function() unSelectUsername,
     required TResult Function(
             StateStatus stateStatus, GetConversationsDto getConversations)
         getConversations,
@@ -1051,6 +1477,8 @@ class _$SendChatImpl implements _SendChat {
     TResult? Function()? connectChatStream,
     TResult? Function()? disposeChatStream,
     TResult? Function(StateStatus stateStatus, int page)? getConversation,
+    TResult? Function(String userName)? selectUsername,
+    TResult? Function()? unSelectUsername,
     TResult? Function(
             StateStatus stateStatus, GetConversationsDto getConversations)?
         getConversations,
@@ -1068,6 +1496,8 @@ class _$SendChatImpl implements _SendChat {
     TResult Function()? connectChatStream,
     TResult Function()? disposeChatStream,
     TResult Function(StateStatus stateStatus, int page)? getConversation,
+    TResult Function(String userName)? selectUsername,
+    TResult Function()? unSelectUsername,
     TResult Function(
             StateStatus stateStatus, GetConversationsDto getConversations)?
         getConversations,
@@ -1089,6 +1519,8 @@ class _$SendChatImpl implements _SendChat {
     required TResult Function(_ConnectChatStream value) connectChatStream,
     required TResult Function(_DisposeChatStream value) disposeChatStream,
     required TResult Function(_GetConversation value) getConversation,
+    required TResult Function(_SelectUsername value) selectUsername,
+    required TResult Function(_UnSelectUsername value) unSelectUsername,
     required TResult Function(_GetConversations value) getConversations,
     required TResult Function(_DisposeChatData value) disposeChatData,
     required TResult Function(_SendChat value) sendChat,
@@ -1103,6 +1535,8 @@ class _$SendChatImpl implements _SendChat {
     TResult? Function(_ConnectChatStream value)? connectChatStream,
     TResult? Function(_DisposeChatStream value)? disposeChatStream,
     TResult? Function(_GetConversation value)? getConversation,
+    TResult? Function(_SelectUsername value)? selectUsername,
+    TResult? Function(_UnSelectUsername value)? unSelectUsername,
     TResult? Function(_GetConversations value)? getConversations,
     TResult? Function(_DisposeChatData value)? disposeChatData,
     TResult? Function(_SendChat value)? sendChat,
@@ -1117,6 +1551,8 @@ class _$SendChatImpl implements _SendChat {
     TResult Function(_ConnectChatStream value)? connectChatStream,
     TResult Function(_DisposeChatStream value)? disposeChatStream,
     TResult Function(_GetConversation value)? getConversation,
+    TResult Function(_SelectUsername value)? selectUsername,
+    TResult Function(_UnSelectUsername value)? unSelectUsername,
     TResult Function(_GetConversations value)? getConversations,
     TResult Function(_DisposeChatData value)? disposeChatData,
     TResult Function(_SendChat value)? sendChat,
@@ -1228,6 +1664,8 @@ class _$ChangeStateStatusImpl implements _ChangeStateStatus {
     required TResult Function() disposeChatStream,
     required TResult Function(StateStatus stateStatus, int page)
         getConversation,
+    required TResult Function(String userName) selectUsername,
+    required TResult Function() unSelectUsername,
     required TResult Function(
             StateStatus stateStatus, GetConversationsDto getConversations)
         getConversations,
@@ -1245,6 +1683,8 @@ class _$ChangeStateStatusImpl implements _ChangeStateStatus {
     TResult? Function()? connectChatStream,
     TResult? Function()? disposeChatStream,
     TResult? Function(StateStatus stateStatus, int page)? getConversation,
+    TResult? Function(String userName)? selectUsername,
+    TResult? Function()? unSelectUsername,
     TResult? Function(
             StateStatus stateStatus, GetConversationsDto getConversations)?
         getConversations,
@@ -1262,6 +1702,8 @@ class _$ChangeStateStatusImpl implements _ChangeStateStatus {
     TResult Function()? connectChatStream,
     TResult Function()? disposeChatStream,
     TResult Function(StateStatus stateStatus, int page)? getConversation,
+    TResult Function(String userName)? selectUsername,
+    TResult Function()? unSelectUsername,
     TResult Function(
             StateStatus stateStatus, GetConversationsDto getConversations)?
         getConversations,
@@ -1283,6 +1725,8 @@ class _$ChangeStateStatusImpl implements _ChangeStateStatus {
     required TResult Function(_ConnectChatStream value) connectChatStream,
     required TResult Function(_DisposeChatStream value) disposeChatStream,
     required TResult Function(_GetConversation value) getConversation,
+    required TResult Function(_SelectUsername value) selectUsername,
+    required TResult Function(_UnSelectUsername value) unSelectUsername,
     required TResult Function(_GetConversations value) getConversations,
     required TResult Function(_DisposeChatData value) disposeChatData,
     required TResult Function(_SendChat value) sendChat,
@@ -1297,6 +1741,8 @@ class _$ChangeStateStatusImpl implements _ChangeStateStatus {
     TResult? Function(_ConnectChatStream value)? connectChatStream,
     TResult? Function(_DisposeChatStream value)? disposeChatStream,
     TResult? Function(_GetConversation value)? getConversation,
+    TResult? Function(_SelectUsername value)? selectUsername,
+    TResult? Function(_UnSelectUsername value)? unSelectUsername,
     TResult? Function(_GetConversations value)? getConversations,
     TResult? Function(_DisposeChatData value)? disposeChatData,
     TResult? Function(_SendChat value)? sendChat,
@@ -1311,6 +1757,8 @@ class _$ChangeStateStatusImpl implements _ChangeStateStatus {
     TResult Function(_ConnectChatStream value)? connectChatStream,
     TResult Function(_DisposeChatStream value)? disposeChatStream,
     TResult Function(_GetConversation value)? getConversation,
+    TResult Function(_SelectUsername value)? selectUsername,
+    TResult Function(_UnSelectUsername value)? unSelectUsername,
     TResult Function(_GetConversations value)? getConversations,
     TResult Function(_DisposeChatData value)? disposeChatData,
     TResult Function(_SendChat value)? sendChat,
@@ -1350,12 +1798,10 @@ mixin _$ChatsState {
   ConversationsDataDto? get conversations => throw _privateConstructorUsedError;
   List<ConversationsDto> get conversationsList =>
       throw _privateConstructorUsedError;
-  String? get selectedConversationId => throw _privateConstructorUsedError;
-  bool get isCurrentlyOnChatPage => throw _privateConstructorUsedError;
-  bool get isChatUpdated => throw _privateConstructorUsedError;
-  bool get isChatSent => throw _privateConstructorUsedError;
   bool get isConversationLoaded => throw _privateConstructorUsedError;
   bool get isConversationsLoaded => throw _privateConstructorUsedError;
+  bool get isChatConnected => throw _privateConstructorUsedError;
+  String? get selectedUserName => throw _privateConstructorUsedError;
 
   /// Create a copy of ChatsState
   /// with the given fields replaced by the non-null parameter values.
@@ -1378,12 +1824,10 @@ abstract class $ChatsStateCopyWith<$Res> {
       List<ConversationDto> conversationList,
       ConversationsDataDto? conversations,
       List<ConversationsDto> conversationsList,
-      String? selectedConversationId,
-      bool isCurrentlyOnChatPage,
-      bool isChatUpdated,
-      bool isChatSent,
       bool isConversationLoaded,
-      bool isConversationsLoaded});
+      bool isConversationsLoaded,
+      bool isChatConnected,
+      String? selectedUserName});
 
   $ConversationDataDtoCopyWith<$Res>? get conversation;
   $ConversationsDataDtoCopyWith<$Res>? get conversations;
@@ -1411,12 +1855,10 @@ class _$ChatsStateCopyWithImpl<$Res, $Val extends ChatsState>
     Object? conversationList = null,
     Object? conversations = freezed,
     Object? conversationsList = null,
-    Object? selectedConversationId = freezed,
-    Object? isCurrentlyOnChatPage = null,
-    Object? isChatUpdated = null,
-    Object? isChatSent = null,
     Object? isConversationLoaded = null,
     Object? isConversationsLoaded = null,
+    Object? isChatConnected = null,
+    Object? selectedUserName = freezed,
   }) {
     return _then(_value.copyWith(
       errorMessage: freezed == errorMessage
@@ -1447,22 +1889,6 @@ class _$ChatsStateCopyWithImpl<$Res, $Val extends ChatsState>
           ? _value.conversationsList
           : conversationsList // ignore: cast_nullable_to_non_nullable
               as List<ConversationsDto>,
-      selectedConversationId: freezed == selectedConversationId
-          ? _value.selectedConversationId
-          : selectedConversationId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isCurrentlyOnChatPage: null == isCurrentlyOnChatPage
-          ? _value.isCurrentlyOnChatPage
-          : isCurrentlyOnChatPage // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isChatUpdated: null == isChatUpdated
-          ? _value.isChatUpdated
-          : isChatUpdated // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isChatSent: null == isChatSent
-          ? _value.isChatSent
-          : isChatSent // ignore: cast_nullable_to_non_nullable
-              as bool,
       isConversationLoaded: null == isConversationLoaded
           ? _value.isConversationLoaded
           : isConversationLoaded // ignore: cast_nullable_to_non_nullable
@@ -1471,6 +1897,14 @@ class _$ChatsStateCopyWithImpl<$Res, $Val extends ChatsState>
           ? _value.isConversationsLoaded
           : isConversationsLoaded // ignore: cast_nullable_to_non_nullable
               as bool,
+      isChatConnected: null == isChatConnected
+          ? _value.isChatConnected
+          : isChatConnected // ignore: cast_nullable_to_non_nullable
+              as bool,
+      selectedUserName: freezed == selectedUserName
+          ? _value.selectedUserName
+          : selectedUserName // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -1519,12 +1953,10 @@ abstract class _$$ChatsStateImplCopyWith<$Res>
       List<ConversationDto> conversationList,
       ConversationsDataDto? conversations,
       List<ConversationsDto> conversationsList,
-      String? selectedConversationId,
-      bool isCurrentlyOnChatPage,
-      bool isChatUpdated,
-      bool isChatSent,
       bool isConversationLoaded,
-      bool isConversationsLoaded});
+      bool isConversationsLoaded,
+      bool isChatConnected,
+      String? selectedUserName});
 
   @override
   $ConversationDataDtoCopyWith<$Res>? get conversation;
@@ -1552,12 +1984,10 @@ class __$$ChatsStateImplCopyWithImpl<$Res>
     Object? conversationList = null,
     Object? conversations = freezed,
     Object? conversationsList = null,
-    Object? selectedConversationId = freezed,
-    Object? isCurrentlyOnChatPage = null,
-    Object? isChatUpdated = null,
-    Object? isChatSent = null,
     Object? isConversationLoaded = null,
     Object? isConversationsLoaded = null,
+    Object? isChatConnected = null,
+    Object? selectedUserName = freezed,
   }) {
     return _then(_$ChatsStateImpl(
       errorMessage: freezed == errorMessage
@@ -1588,22 +2018,6 @@ class __$$ChatsStateImplCopyWithImpl<$Res>
           ? _value._conversationsList
           : conversationsList // ignore: cast_nullable_to_non_nullable
               as List<ConversationsDto>,
-      selectedConversationId: freezed == selectedConversationId
-          ? _value.selectedConversationId
-          : selectedConversationId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isCurrentlyOnChatPage: null == isCurrentlyOnChatPage
-          ? _value.isCurrentlyOnChatPage
-          : isCurrentlyOnChatPage // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isChatUpdated: null == isChatUpdated
-          ? _value.isChatUpdated
-          : isChatUpdated // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isChatSent: null == isChatSent
-          ? _value.isChatSent
-          : isChatSent // ignore: cast_nullable_to_non_nullable
-              as bool,
       isConversationLoaded: null == isConversationLoaded
           ? _value.isConversationLoaded
           : isConversationLoaded // ignore: cast_nullable_to_non_nullable
@@ -1612,6 +2026,14 @@ class __$$ChatsStateImplCopyWithImpl<$Res>
           ? _value.isConversationsLoaded
           : isConversationsLoaded // ignore: cast_nullable_to_non_nullable
               as bool,
+      isChatConnected: null == isChatConnected
+          ? _value.isChatConnected
+          : isChatConnected // ignore: cast_nullable_to_non_nullable
+              as bool,
+      selectedUserName: freezed == selectedUserName
+          ? _value.selectedUserName
+          : selectedUserName // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1627,12 +2049,10 @@ class _$ChatsStateImpl implements _ChatsState {
       required final List<ConversationDto> conversationList,
       this.conversations,
       required final List<ConversationsDto> conversationsList,
-      this.selectedConversationId,
-      required this.isCurrentlyOnChatPage,
-      required this.isChatUpdated,
-      required this.isChatSent,
       required this.isConversationLoaded,
-      required this.isConversationsLoaded})
+      required this.isConversationsLoaded,
+      required this.isChatConnected,
+      this.selectedUserName})
       : _conversationList = conversationList,
         _conversationsList = conversationsList;
 
@@ -1665,21 +2085,17 @@ class _$ChatsStateImpl implements _ChatsState {
   }
 
   @override
-  final String? selectedConversationId;
-  @override
-  final bool isCurrentlyOnChatPage;
-  @override
-  final bool isChatUpdated;
-  @override
-  final bool isChatSent;
-  @override
   final bool isConversationLoaded;
   @override
   final bool isConversationsLoaded;
+  @override
+  final bool isChatConnected;
+  @override
+  final String? selectedUserName;
 
   @override
   String toString() {
-    return 'ChatsState(errorMessage: $errorMessage, stateStatus: $stateStatus, chatStatus: $chatStatus, conversation: $conversation, conversationList: $conversationList, conversations: $conversations, conversationsList: $conversationsList, selectedConversationId: $selectedConversationId, isCurrentlyOnChatPage: $isCurrentlyOnChatPage, isChatUpdated: $isChatUpdated, isChatSent: $isChatSent, isConversationLoaded: $isConversationLoaded, isConversationsLoaded: $isConversationsLoaded)';
+    return 'ChatsState(errorMessage: $errorMessage, stateStatus: $stateStatus, chatStatus: $chatStatus, conversation: $conversation, conversationList: $conversationList, conversations: $conversations, conversationsList: $conversationsList, isConversationLoaded: $isConversationLoaded, isConversationsLoaded: $isConversationsLoaded, isChatConnected: $isChatConnected, selectedUserName: $selectedUserName)';
   }
 
   @override
@@ -1701,18 +2117,14 @@ class _$ChatsStateImpl implements _ChatsState {
                 other.conversations == conversations) &&
             const DeepCollectionEquality()
                 .equals(other._conversationsList, _conversationsList) &&
-            (identical(other.selectedConversationId, selectedConversationId) ||
-                other.selectedConversationId == selectedConversationId) &&
-            (identical(other.isCurrentlyOnChatPage, isCurrentlyOnChatPage) ||
-                other.isCurrentlyOnChatPage == isCurrentlyOnChatPage) &&
-            (identical(other.isChatUpdated, isChatUpdated) ||
-                other.isChatUpdated == isChatUpdated) &&
-            (identical(other.isChatSent, isChatSent) ||
-                other.isChatSent == isChatSent) &&
             (identical(other.isConversationLoaded, isConversationLoaded) ||
                 other.isConversationLoaded == isConversationLoaded) &&
             (identical(other.isConversationsLoaded, isConversationsLoaded) ||
-                other.isConversationsLoaded == isConversationsLoaded));
+                other.isConversationsLoaded == isConversationsLoaded) &&
+            (identical(other.isChatConnected, isChatConnected) ||
+                other.isChatConnected == isChatConnected) &&
+            (identical(other.selectedUserName, selectedUserName) ||
+                other.selectedUserName == selectedUserName));
   }
 
   @override
@@ -1725,12 +2137,10 @@ class _$ChatsStateImpl implements _ChatsState {
       const DeepCollectionEquality().hash(_conversationList),
       conversations,
       const DeepCollectionEquality().hash(_conversationsList),
-      selectedConversationId,
-      isCurrentlyOnChatPage,
-      isChatUpdated,
-      isChatSent,
       isConversationLoaded,
-      isConversationsLoaded);
+      isConversationsLoaded,
+      isChatConnected,
+      selectedUserName);
 
   /// Create a copy of ChatsState
   /// with the given fields replaced by the non-null parameter values.
@@ -1750,12 +2160,10 @@ abstract class _ChatsState implements ChatsState {
       required final List<ConversationDto> conversationList,
       final ConversationsDataDto? conversations,
       required final List<ConversationsDto> conversationsList,
-      final String? selectedConversationId,
-      required final bool isCurrentlyOnChatPage,
-      required final bool isChatUpdated,
-      required final bool isChatSent,
       required final bool isConversationLoaded,
-      required final bool isConversationsLoaded}) = _$ChatsStateImpl;
+      required final bool isConversationsLoaded,
+      required final bool isChatConnected,
+      final String? selectedUserName}) = _$ChatsStateImpl;
 
   @override
   String? get errorMessage;
@@ -1772,17 +2180,13 @@ abstract class _ChatsState implements ChatsState {
   @override
   List<ConversationsDto> get conversationsList;
   @override
-  String? get selectedConversationId;
-  @override
-  bool get isCurrentlyOnChatPage;
-  @override
-  bool get isChatUpdated;
-  @override
-  bool get isChatSent;
-  @override
   bool get isConversationLoaded;
   @override
   bool get isConversationsLoaded;
+  @override
+  bool get isChatConnected;
+  @override
+  String? get selectedUserName;
 
   /// Create a copy of ChatsState
   /// with the given fields replaced by the non-null parameter values.

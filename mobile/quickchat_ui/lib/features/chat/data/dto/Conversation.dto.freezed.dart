@@ -23,7 +23,7 @@ mixin _$ConversationDto {
   String get sender => throw _privateConstructorUsedError;
   String get recipient => throw _privateConstructorUsedError;
   String get lastMessage => throw _privateConstructorUsedError;
-  DateTime get timeStamp => throw _privateConstructorUsedError;
+  String get timeStamp => throw _privateConstructorUsedError;
   String get conversationsId => throw _privateConstructorUsedError;
 
   /// Serializes this ConversationDto to a JSON map.
@@ -46,7 +46,7 @@ abstract class $ConversationDtoCopyWith<$Res> {
       {String sender,
       String recipient,
       String lastMessage,
-      DateTime timeStamp,
+      String timeStamp,
       String conversationsId});
 }
 
@@ -87,7 +87,7 @@ class _$ConversationDtoCopyWithImpl<$Res, $Val extends ConversationDto>
       timeStamp: null == timeStamp
           ? _value.timeStamp
           : timeStamp // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
       conversationsId: null == conversationsId
           ? _value.conversationsId
           : conversationsId // ignore: cast_nullable_to_non_nullable
@@ -108,7 +108,7 @@ abstract class _$$ConversationDtoImplCopyWith<$Res>
       {String sender,
       String recipient,
       String lastMessage,
-      DateTime timeStamp,
+      String timeStamp,
       String conversationsId});
 }
 
@@ -147,7 +147,7 @@ class __$$ConversationDtoImplCopyWithImpl<$Res>
       timeStamp: null == timeStamp
           ? _value.timeStamp
           : timeStamp // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
       conversationsId: null == conversationsId
           ? _value.conversationsId
           : conversationsId // ignore: cast_nullable_to_non_nullable
@@ -177,7 +177,7 @@ class _$ConversationDtoImpl extends _ConversationDto {
   @override
   final String lastMessage;
   @override
-  final DateTime timeStamp;
+  final String timeStamp;
   @override
   final String conversationsId;
 
@@ -229,7 +229,7 @@ abstract class _ConversationDto extends ConversationDto {
       {required final String sender,
       required final String recipient,
       required final String lastMessage,
-      required final DateTime timeStamp,
+      required final String timeStamp,
       required final String conversationsId}) = _$ConversationDtoImpl;
   const _ConversationDto._() : super._();
 
@@ -243,7 +243,7 @@ abstract class _ConversationDto extends ConversationDto {
   @override
   String get lastMessage;
   @override
-  DateTime get timeStamp;
+  String get timeStamp;
   @override
   String get conversationsId;
 

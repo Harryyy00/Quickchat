@@ -1,7 +1,7 @@
 <?php
 namespace App\Domain\Chat\Entities;
 
-class Conversation
+class ConversationEntity
 {
     public string $id;
     public string $sender;

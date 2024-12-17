@@ -14,6 +14,7 @@ import 'package:quickchat_ui/features/chat/presentation/widgets/ConversationItem
 import 'package:quickchat_ui/features/chat/usecase/ConnectChatStream.usecase.dart';
 import 'package:quickchat_ui/features/chat/usecase/DisposeChatStream.usecase.dart';
 import 'package:quickchat_ui/features/chat/usecase/GetConversation.usecase.dart';
+import 'package:quickchat_ui/features/chat/usecase/SelecUsername.usecase.dart';
 
 @RoutePage()
 class ChatsPage extends StatefulWidget {
@@ -30,6 +31,7 @@ class _ChatsPageState extends State<ChatsPage> {
   late GetConversationUsecase _getConversationUsecase;
   late ConnectChatStreamUsecase _connectChatStreamUsecase;
   late DisposeChatStreamUsecase _disposeChatStreamUsecase;
+  late SelectUsernameUsecase _selectUsernameUsecase;
 
   late StackRouter _router;
 
@@ -45,15 +47,22 @@ class _ChatsPageState extends State<ChatsPage> {
     _getConversationUsecase = getIt<GetConversationUsecase>();
     _connectChatStreamUsecase = getIt<ConnectChatStreamUsecase>();
     _disposeChatStreamUsecase = getIt<DisposeChatStreamUsecase>();
+    _selectUsernameUsecase = getIt<SelectUsernameUsecase>();
 
     _router = AutoRouter.of(context);
 
     _qcDateUtils = getIt<QCDateUtils>();
 
+    print('GGGGGGG');
     Future.delayed(const Duration(seconds: 5), () {
       setState(() {
         _isLoading = false;
       });
+    }).then((Object? e) {
+      if (!_chatsBloc.state.isChatConnected) {
+        print('ohoyy');
+        _connectChatStreamUsecase.execute();
+      }
     });
 
     _getConversation(stateStatus: StateStatus.loadingState, page: 1);
@@ -125,6 +134,7 @@ class _ChatsPageState extends State<ChatsPage> {
                             conversationId: e.conversationsId,
                             name: userName[0],
                           ));
+                          _selectUsernameUsecase.execute(userName: userName[0]);
                         },
                       );
                     }),
@@ -147,9 +157,11 @@ class _ChatsPageState extends State<ChatsPage> {
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
 
-    if (state.isConversationLoaded) {
-      _connectChatStreamUsecase.execute();
-    }
+    // if (!(_isLoading || state.stateStatus == StateStatus.loadingState)) {
+    //   if (state.isConversationLoaded) {
+    //     _connectChatStreamUsecase.execute();
+    //   }
+    // }
   }
 
   /// Private Methods

@@ -1,16 +1,16 @@
 <?php
 
 namespace App\Domain\Auth\DTO;
-use App\Domain\User\Entities\User;
+use App\Domain\User\Entities\UserEntity;
 
 
 class LoggedDataDto
 {
     public int $statusCode;
     public string $token;
-    public User $user;
+    public UserEntity $user;
 
-    public function __construct(int $statusCode, string $token, User $user)
+    public function __construct(int $statusCode, string $token, UserEntity $user)
     {
         $this->statusCode = $statusCode;
         $this->token = $token;

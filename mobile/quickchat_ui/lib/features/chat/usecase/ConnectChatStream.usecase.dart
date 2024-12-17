@@ -7,6 +7,7 @@ class ConnectChatStreamUsecase {
   final ChatsBloc chatBloc;
 
   void execute() {
+    print('bubu');
     chatBloc.add(const ChatsEvent.connectChatStream());
   }
 }

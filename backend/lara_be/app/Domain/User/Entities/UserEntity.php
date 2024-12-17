@@ -1,7 +1,7 @@
 <?php
 namespace App\Domain\User\Entities;
 
-class User
+class UserEntity
 {
     public string $id;
     public string $name;

@@ -7,6 +7,7 @@ import { ObjectId } from "mongodb";
 import { stringify } from "querystring";
 
 export class ChatSseUsecase {
+  constructor(private chatRepository: ChatRepository) {}
   private clients: Map<string, Response[]> = new Map();
 
   async addClient({

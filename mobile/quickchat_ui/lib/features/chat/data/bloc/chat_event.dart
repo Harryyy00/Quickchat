@@ -11,6 +11,12 @@ class ChatsEvent with _$ChatsEvent {
     required int page,
   }) = _GetConversation;
 
+  const factory ChatsEvent.selectUsername({
+    required String userName,
+  }) = _SelectUsername;
+
+  const factory ChatsEvent.unSelectUsername() = _UnSelectUsername;
+
   const factory ChatsEvent.getConversations({
     required StateStatus stateStatus,
     required GetConversationsDto getConversations,

@@ -1,0 +1,4 @@
+enum SelectType {
+  select,
+  unselect,
+}

@@ -81,8 +81,8 @@ class _AuthDetailsWidgetState extends State<AuthDetailsWidget> {
                   buttonwidth: width,
                   isLoading: state.stateStatus == StateStatus.loadingState,
                   action: () {
-                    _logoutUserUsecase.execute();
                     _disposeChatStreamUsecase.execute();
+                    _logoutUserUsecase.execute();
                   },
                 ),
                 const SizedBox(height: 10),

@@ -14,10 +14,10 @@ import { ConversationResultDto } from "../../../core/dto/Chat/ConversationResult
 
 export class ChatController {
   constructor(
-    private chatSseUsecase: ChatSseUsecase
-  ) // private getConversationUsecase: GetConversationUsecase,
-  // private getConversationsUsecase: GetConversationsUsecase
-  {}
+    private chatSseUsecase: ChatSseUsecase,
+    private getConversationUsecase: GetConversationUsecase,
+    private getConversationsUsecase: GetConversationsUsecase
+  ) {}
 
   sse(req: Request, res: Response) {
     const username = (req as any).user.userName;
@@ -69,63 +69,63 @@ export class ChatController {
     return;
   }
 
-  // async getConversation(req: Request, res: Response) {
-  //   const schema = Joi.object({
-  //     page: Joi.number().required(),
-  //   });
+  async getConversation(req: Request, res: Response) {
+    const schema = Joi.object({
+      page: Joi.number().required(),
+    });
 
-  //   const userName = (req as any).user.username;
+    const userName = (req as any).user.username;
 
-  //   const { error, value } = schema.validate(req.params);
+    const { error, value } = schema.validate(req.params);
 
-  //   let result: Either<ErrorResponse, ConversationResultDto>;
+    let result: Either<ErrorResponse, ConversationResultDto>;
 
-  //   if (error) {
-  //     res.status(400).json({ errors: { message: error.details[0].message } });
-  //   } else {
-  //     result = await this.getConversationUsecase.execute({
-  //       userName: userName,
-  //       page: value.page,
-  //     });
-  //     if (isRight(result)) {
-  //       const data = unwrapEither(result);
-  //       res.status(200).send({ data: data });
-  //       return;
-  //     }
+    if (error) {
+      res.status(400).json({ errors: { message: error.details[0].message } });
+    } else {
+      result = await this.getConversationUsecase.execute({
+        userName: userName,
+        page: value.page,
+      });
+      if (isRight(result)) {
+        const data = unwrapEither(result);
+        res.status(200).send({ data: data });
+        return;
+      }
 
-  //     const error = unwrapEither(result);
-  //     res.status(error.statusCode).send({ errors: error });
-  //     return;
-  //   }
-  // }
+      const error = unwrapEither(result);
+      res.status(error.statusCode).send({ errors: error });
+      return;
+    }
+  }
 
-  // async getConversations(req: Request, res: Response) {
-  //   const schema = Joi.object({
-  //     conversationsId: objectId.objectId().required(),
-  //     page: Joi.number().required(),
-  //   });
+  async getConversations(req: Request, res: Response) {
+    const schema = Joi.object({
+      conversationsId: objectId.objectId().required(),
+      page: Joi.number().required(),
+    });
 
-  //   const { error, value } = schema.validate(req.params);
+    const { error, value } = schema.validate(req.params);
 
-  //   let result: Either<ErrorResponse, ConversationsResultDto>;
+    let result: Either<ErrorResponse, ConversationsResultDto>;
 
-  //   if (error) {
-  //     res.status(400).json({ errors: { message: error.details[0].message } });
-  //   } else {
-  //     result = await this.getConversationsUsecase.execute({
-  //       conversationsId: value.conversationsId,
-  //       page: value.page,
-  //     });
+    if (error) {
+      res.status(400).json({ errors: { message: error.details[0].message } });
+    } else {
+      result = await this.getConversationsUsecase.execute({
+        conversationsId: value.conversationsId,
+        page: value.page,
+      });
 
-  //     if (isRight(result)) {
-  //       const data = unwrapEither(result);
-  //       res.status(200).send({ data: data });
-  //       return;
-  //     }
+      if (isRight(result)) {
+        const data = unwrapEither(result);
+        res.status(200).send({ data: data });
+        return;
+      }
 
-  //     const error = unwrapEither(result);
-  //     res.status(error.statusCode).send({ errors: error });
-  //     return;
-  //   }
-  // }
+      const error = unwrapEither(result);
+      res.status(error.statusCode).send({ errors: error });
+      return;
+    }
+  }
 }
